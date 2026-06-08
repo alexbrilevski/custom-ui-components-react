@@ -1,0 +1,61 @@
+.message {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 10px;
+}
+
+.message.incoming {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.angle {
+  width: 15px;
+  height: 15px;
+}
+
+.content {
+  padding: 10px;
+}
+
+.outgoing .content {
+  background: cadetblue;
+  border-radius: 10px 10px 0 10px;
+}
+
+.outgoing .angle {
+  background: radial-gradient(circle at 15px 0, transparent 15px, cadetblue 0);
+}
+
+.incoming .content {
+  background: cornflowerblue;
+  border-radius: 10px 10px 10px 0;
+}
+
+.incoming .angle {
+  background: radial-gradient(circle at 0 0, transparent 15px, cornflowerblue 0);
+}
+
+.name {
+  margin: 0 0 6px 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.text {
+  margin: 0;
+  min-width: 150px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.time {
+  margin: 6px 0 0;
+  font-size: 12px;
+  text-align: right;
+}
