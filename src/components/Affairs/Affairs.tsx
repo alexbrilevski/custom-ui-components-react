@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddAffair from "./AddAffair";
 import AffairsList from "./AffairsList";
 import { v1 } from "uuid";
 
@@ -33,10 +34,15 @@ export const Affairs = () => {
   const [filter, setFilter] = useState<FilterType>("all");
 
   const filteredAffairs = filterAffairs(affairs, filter);
+  const onAddAffair = (name: string) => setAffairs([
+    { _id: v1(), name, priority: "middle" },
+    ...affairs,
+  ]);
   const onDeleteAffair = (_id: string) => setAffairs(deleteAffair(affairs, _id));
 
   return (
     <div>
+      <AddAffair items={affairs} onAddItem={onAddAffair} />
       <AffairsList
         data={filteredAffairs}
         filter={filter}

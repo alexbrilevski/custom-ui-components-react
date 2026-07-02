@@ -1,13 +1,13 @@
 import { useState, type ChangeEvent, type FC, type KeyboardEvent } from "react";
-import Greeting from "./Greeting";
-import type { UserType } from "./UserGreeting";
+import type { AffairType } from "./Affairs";
+import AddItemFrom from "./AddItemFrom";
 
-type GreetingContainerProps = {
-  users: UserType[],
-  addUserCallback: (userName: string) => void,
+type AddAffairProps = {
+  items: AffairType[],
+  onAddItem: (userName: string) => void,
 };
 
-const GreetingContainer: FC<GreetingContainerProps> = ({users, addUserCallback}) => {
+const AddAffair: FC<AddAffairProps> = ({items, onAddItem}) => {
   const [name, setName] = useState<string>("");
   const [error, setError] = useState<string>("");
 
@@ -19,35 +19,34 @@ const GreetingContainer: FC<GreetingContainerProps> = ({users, addUserCallback})
     } else {
       name && setName("");
       setError("Name is required");
-    } // fixed
+    }
   };
 
-  const addUser = () => {
-    addUserCallback(name);
-    alert(`Hello ${name}!`);
-    setName(""); // fixed
+  const addItem = () => {
+    onAddItem(name);
+    setName("");
   };
 
   const onEnterKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && name) {
-      addUser();
+      addItem();
     } else {
       setError("Name is required");
     }
   };
 
-  const totalUsers = users.length;
+  const totalUsers = items.length;
 
   return (
-    <Greeting
+    <AddItemFrom
       name={name}
       setNameCallback={setNameCallback}
       onEnterKeyPress={onEnterKeyPress}
-      addUser={addUser}
+      addUser={addItem}
       error={error}
       totalUsers={totalUsers}
     />
   );
 };
 
-export default GreetingContainer;
+export default AddAffair;

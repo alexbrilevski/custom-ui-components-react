@@ -1,7 +1,7 @@
 import type { ChangeEvent, FC, KeyboardEvent } from "react";
-import s from "./Greeting.module.css";
+import s from "./AddItemFrom.module.css";
 
-type GreetingProps = {
+type AddItemFromProps = {
   name: string,
   setNameCallback: (event: ChangeEvent<HTMLInputElement>) => void,
   onEnterKeyPress: (event: KeyboardEvent<HTMLInputElement>) => void,
@@ -10,7 +10,7 @@ type GreetingProps = {
   totalUsers: number,
 };
 
-const Greeting: FC<GreetingProps> = (
+const AddItemFrom: FC<AddItemFromProps> = (
   { name, setNameCallback, onEnterKeyPress, addUser, error, totalUsers }
 ) => {
   const inputClass = error ? `${s.nameInput} ${s.error}` : s.nameInput;
@@ -24,7 +24,7 @@ const Greeting: FC<GreetingProps> = (
           onKeyPress={onEnterKeyPress}
           className={inputClass}
         />
-        <span className={s.errorMessage}>{error}</span>
+        {error && <span className={s.errorMessage}>{error}</span>}
       </div>
       <button onClick={addUser} className={s.addButton} disabled={!name}>Add</button>
       <span>{totalUsers}</span>
@@ -32,4 +32,4 @@ const Greeting: FC<GreetingProps> = (
   );
 };
 
-export default Greeting
+export default AddItemFrom;
