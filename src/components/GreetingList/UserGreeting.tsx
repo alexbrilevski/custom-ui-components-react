@@ -12,7 +12,7 @@ function UserGreeting() {
   const [users, setUsers] = useState<Array<UserType>>([]);
 
   const addUserCallback = (name: string) => {
-    setUsers([{ _id: v1(), name }, ...users]);
+    setUsers([...users, { _id: v1(), name }]);
   };
 
   return (
@@ -20,6 +20,6 @@ function UserGreeting() {
       <GreetingContainer users={users} addUserCallback={addUserCallback} />
     </div>
   );
-};
+}
 
 export default UserGreeting;
