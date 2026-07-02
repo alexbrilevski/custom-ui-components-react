@@ -4,7 +4,7 @@ import styles from "./Affairs.module.css";
 
 type AffairProps = {
   affair: AffairType,
-  onDeleteAffair: (affair_ID: number) => void,
+  onDeleteAffair: (affair_ID: string) => void,
 };
 
 const Affair: FC<AffairProps> = (props) => {

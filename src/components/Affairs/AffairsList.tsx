@@ -7,7 +7,7 @@ type AffairsListsProps = {
   data: Array<AffairType>,
   filter: FilterType,
   setFilter: (filterValue: FilterType) => void,
-  onDeleteAffair: (affair_ID: number) => void,
+  onDeleteAffair: (affair_ID: string) => void,
 };
 
 export const AffairsList: FC<AffairsListsProps> = (props) => {

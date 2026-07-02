@@ -1,14 +1,15 @@
 import { type AffairType, deleteAffair, filterAffairs } from "./Affairs";
+import { v1 } from "uuid";
 
 let initialState: AffairType[];
 
 beforeEach(() => {
   initialState = [
-    { _id: 1, name: "React", priority: "high" },
-    { _id: 2, name: "Movies", priority: "low" },
-    { _id: 3, name: "Games", priority: "low" },
-    { _id: 4, name: "Work", priority: "high" },
-    { _id: 5, name: "HTML & CSS", priority: "middle" },
+    { _id: v1(), name: "React", priority: "high" },
+    { _id: v1(), name: "Movies", priority: "low" },
+    { _id: v1(), name: "Games", priority: "low" },
+    { _id: v1(), name: "Work", priority: "high" },
+    { _id: v1(), name: "HTML & CSS", priority: "middle" },
   ];
 });
 
@@ -33,20 +34,20 @@ test('filter by low', () => {
 });
 
 test('delete 0', () => {
-  const newState = deleteAffair(initialState, 0);
+  const newState = deleteAffair(initialState, '0');
   expect(newState.length).toBe(5);
 });
 
 test('delete 1', () => {
-  const newState = deleteAffair(initialState, 1);
+  const newState = deleteAffair(initialState, initialState[0]._id);
   expect(newState.length).toBe(4);
 });
 test('delete 3', () => {
-  const newState = deleteAffair(initialState, 3);
+  const newState = deleteAffair(initialState, initialState[2]._id);
   expect(newState.length).toBe(4);
 });
 
 test('delete 7', () => {
-  const newState = deleteAffair(initialState, 7);
+  const newState = deleteAffair(initialState, '7');
   expect(newState.length).toBe(5);
 });
