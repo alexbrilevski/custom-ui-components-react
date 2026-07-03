@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputText from "./common/InputText/InputText";
+import Button from "./common/Button/Button";
 import s from "./UIKit.module.css";
 
 function UIKit() {
@@ -28,6 +29,21 @@ function UIKit() {
         <InputText
           className={s.solidBottomBorder}
         />
+
+        <Button className={s.blueBackground}>
+          default
+        </Button>
+
+        <Button
+          red
+          onClick={showAlert}
+        >
+          delete
+        </Button>
+
+        <Button disabled>
+          disabled
+        </Button>
       </div>
     </div>
   );
