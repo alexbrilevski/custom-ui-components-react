@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import InputText from "./common/InputText/InputText";
 import Button from "./common/Button/Button";
+import Checkbox from "./common/Checkbox/Checkbox";
 import s from "./UIKit.module.css";
 
 function UIKit() {
@@ -14,6 +15,9 @@ function UIKit() {
       alert(text);
     }
   };
+
+  const [checked, setChecked] = useState<boolean>(false);
+  const testOnChange = (e: ChangeEvent<HTMLInputElement>) => setChecked(e.currentTarget.checked);
 
   return (
     <div>
@@ -44,6 +48,18 @@ function UIKit() {
         <Button disabled>
           disabled
         </Button>
+
+        <Checkbox
+          checked={checked}
+          onChangeChecked={setChecked}
+        >
+          some text
+        </Checkbox>
+
+        <Checkbox
+          checked={checked}
+          onChange={testOnChange}
+        />
       </div>
     </div>
   );
