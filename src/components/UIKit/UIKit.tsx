@@ -3,6 +3,8 @@ import InputText from "./common/InputText/InputText";
 import Button from "./common/Button/Button";
 import Checkbox from "./common/Checkbox/Checkbox";
 import s from "./UIKit.module.css";
+import EditableSpan from "./common/EditableSpan/EditableSpan";
+import { restoreState, saveState } from "../../utils/localStorage";
 
 function UIKit() {
   const [text, setText] = useState<string>("");
@@ -18,6 +20,14 @@ function UIKit() {
 
   const [checked, setChecked] = useState<boolean>(false);
   const testOnChange = (e: ChangeEvent<HTMLInputElement>) => setChecked(e.currentTarget.checked);
+
+  const save = () => {
+    saveState<string>('editable-span-value', text);
+  };
+
+  const restore = () => {
+    setText(restoreState<string>("editable-span-value", ""));
+  };
 
   return (
     <div>
@@ -60,6 +70,16 @@ function UIKit() {
           checked={checked}
           onChange={testOnChange}
         />
+
+        <div>
+          <EditableSpan
+            value={text}
+            onChangeText={setText}
+            spanProps={{ children: text ? undefined : 'enter text...' }}
+          />
+        </div>
+        <Button onClick={save}>save</Button>
+        <Button onClick={restore}>restore</Button>
       </div>
     </div>
   );
