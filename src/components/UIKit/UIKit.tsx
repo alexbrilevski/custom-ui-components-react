@@ -5,6 +5,10 @@ import Checkbox from "./common/Checkbox/Checkbox";
 import s from "./UIKit.module.css";
 import EditableSpan from "./common/EditableSpan/EditableSpan";
 import { restoreState, saveState } from "../../utils/localStorage";
+import Select from "./common/Select/Select";
+import RadioButtons from "./common/RadioButtons/RadioButtons";
+
+const arr = ["a", "b", "c"];
 
 function UIKit() {
   const [text, setText] = useState<string>("");
@@ -28,6 +32,8 @@ function UIKit() {
   const restore = () => {
     setText(restoreState<string>("editable-span-value", ""));
   };
+
+  const [value, onChangeOption] = useState(arr[1]);
 
   return (
     <div>
@@ -80,6 +86,23 @@ function UIKit() {
         </div>
         <Button onClick={save}>save</Button>
         <Button onClick={restore}>restore</Button>
+
+        <div>
+          <Select
+            options={arr}
+            value={value}
+            onChangeOption={onChangeOption}
+          />
+        </div>
+
+        <div>
+          <RadioButtons
+            name={'radio'}
+            options={arr}
+            value={value}
+            onChangeOption={onChangeOption}
+          />
+        </div>
       </div>
     </div>
   );
