@@ -1,4 +1,3 @@
-
 import type { ChangeEvent, DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
 import s from "./RadioButtons.module.css";
 
@@ -27,7 +26,7 @@ const RadioButtons: FC<SuperRadioPropsType> = ({
     <label key={name + '-' + i} className={s.label}>
       <input
         className={s.radio}
-        type={'radio'}
+        type={"radio"}
         name={name}
         value={o}
         checked={o === value}

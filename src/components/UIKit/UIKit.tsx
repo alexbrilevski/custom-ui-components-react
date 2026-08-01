@@ -26,7 +26,7 @@ function UIKit() {
   const testOnChange = (e: ChangeEvent<HTMLInputElement>) => setChecked(e.currentTarget.checked);
 
   const save = () => {
-    saveState<string>('editable-span-value', text);
+    saveState<string>("editable-span-value", text);
   };
 
   const restore = () => {
@@ -81,7 +81,7 @@ function UIKit() {
           <EditableSpan
             value={text}
             onChangeText={setText}
-            spanProps={{ children: text ? undefined : 'enter text...' }}
+            spanProps={{ children: text ? undefined : "enter text..." }}
           />
         </div>
         <Button onClick={save}>save</Button>
@@ -97,7 +97,7 @@ function UIKit() {
 
         <div>
           <RadioButtons
-            name={'radio'}
+            name={"radio"}
             options={arr}
             value={value}
             onChangeOption={onChangeOption}

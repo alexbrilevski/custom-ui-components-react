@@ -1,4 +1,3 @@
-
 import type { ChangeEvent, DetailedHTMLProps, FC, SelectHTMLAttributes } from "react";
 import s from "./Select.module.css";
 

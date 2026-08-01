@@ -1,0 +1,9 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+}
+
+.item {
+  padding: 5px 15px;
+}
