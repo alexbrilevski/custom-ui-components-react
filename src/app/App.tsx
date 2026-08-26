@@ -3,7 +3,7 @@ import Header from "../pages/Header";
 import Pages from "../pages/Pages";
 import style from "./App.module.css";
 import { Provider } from "react-redux";
-import store from "../components/ImageUpload/bll/store";
+import store from "../components/Preloader/bll/store";
 
 function App() {
   return (
