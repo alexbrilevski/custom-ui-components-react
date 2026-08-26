@@ -21,13 +21,9 @@ function Preloader() {
     <div>
       {isLoading
         ? (
-          <div className={s.preloader}>
-            Loading...
-          </div>
+          <div className={s.preloader}></div>
         ) : (
-          <div className={s.preloader}>
-            <Button onClick={setLoading}>Set loading...</Button>
-          </div>
+          <Button onClick={setLoading}>Set loading...</Button>
         )
       }
 
