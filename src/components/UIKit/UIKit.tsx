@@ -7,10 +7,12 @@ import EditableSpan from "./common/EditableSpan/EditableSpan";
 import { restoreState, saveState } from "../../utils/localStorage";
 import Select from "./common/Select/Select";
 import RadioButtons from "./common/RadioButtons/RadioButtons";
+import InputRange from "./common/InputRange/InputRange";
 
 const arr = ["a", "b", "c"];
 
 function UIKit() {
+  const [value1, setValue1] = useState(0);
   const [text, setText] = useState<string>("");
   const error = text ? "" : "error";
 
@@ -101,6 +103,14 @@ function UIKit() {
             options={arr}
             value={value}
             onChangeOption={onChangeOption}
+          />
+        </div>
+
+        <div className={s.rangeWrap}>
+          <span>{value1}</span>
+          <InputRange
+            value={value1}
+            onChangeRange={setValue1}
           />
         </div>
       </div>

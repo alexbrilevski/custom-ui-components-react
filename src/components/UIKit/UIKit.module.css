@@ -13,3 +13,17 @@
 .testSpanError {
   font-weight: bold;
 }
+
+.rangeWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+  margin-bottom: 5px;
+}
+
+.rangeWrap span {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
